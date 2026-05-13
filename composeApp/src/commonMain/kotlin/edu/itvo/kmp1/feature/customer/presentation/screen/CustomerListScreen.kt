@@ -31,8 +31,10 @@ fun CustomerListScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Customers") }
+                title = { Text("Listado de Clientes") }
+
             )
+
         },
         floatingActionButton = {
             FloatingActionButton(
@@ -41,6 +43,7 @@ fun CustomerListScreen(
                 Text("➕")
             }
         }
+
     ) { padding ->
 
         LazyColumn(

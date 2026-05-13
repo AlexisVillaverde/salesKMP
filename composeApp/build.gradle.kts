@@ -69,6 +69,7 @@ kotlin {
             implementation(
                 "me.tatarka.inject:kotlin-inject-runtime:0.9.0"
             )
+            implementation("org.jetbrains.androidx.navigation:navigation-compose:2.9.2")
         }
 
         commonTest.dependencies {
@@ -130,5 +131,7 @@ dependencies {
         "kspAndroid",
         "me.tatarka.inject:kotlin-inject-compiler-ksp:0.9.0"
     )
+
+
 
 }

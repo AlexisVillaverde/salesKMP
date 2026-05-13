@@ -34,7 +34,9 @@ fun CustomerFormScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("New Customer") },
+                title = {
+                    Text("Customer Form")
+                },
                 navigationIcon = {
                     TextButton(onClick = onBack) {
                         Text("Back")
@@ -42,7 +44,7 @@ fun CustomerFormScreen(
                 }
             )
         }
-    ) { padding ->
+    )  { padding ->
 
         Column(
             modifier = Modifier
