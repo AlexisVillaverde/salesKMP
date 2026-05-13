@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.ksp)
+
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -47,10 +49,20 @@ kotlin {
 
     sourceSets {
 
+        iosMain.dependencies {
+            implementation(
+                "io.ktor:ktor-client-darwin:3.4.3"
+            )
+        }
+
         androidMain.dependencies {
 
             implementation(libs.androidx.activity.compose)
             implementation(libs.compose.uiToolingPreview)
+
+            implementation(
+                "io.ktor:ktor-client-okhttp:3.4.3"
+            )
         }
 
         commonMain.dependencies {
@@ -70,6 +82,15 @@ kotlin {
                 "me.tatarka.inject:kotlin-inject-runtime:0.9.0"
             )
             implementation("org.jetbrains.androidx.navigation:navigation-compose:2.9.2")
+
+            //--- para conexión remota
+            implementation("io.ktor:ktor-client-core:3.4.3")
+            implementation("io.ktor:ktor-client-content-negotiation:3.4.3")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:3.4.3")
+            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
+
+            implementation("io.ktor:ktor-client-logging:3.4.3")
+            implementation("io.ktor:ktor-client-auth:3.4.3")
         }
 
         commonTest.dependencies {
@@ -114,6 +135,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
 }
 
 dependencies {
