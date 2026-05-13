@@ -8,9 +8,10 @@ import edu.itvo.kmp1.feature.customer.presentation.screen.CustomerFormScreen
 import edu.itvo.kmp1.feature.customer.presentation.screen.CustomerListScreen
 import edu.itvo.kmp1.feature.customer.presentation.viewmodel.CustomerViewModel
 
+
 @Composable
 fun AppNavHost(
-    viewModel: CustomerViewModel
+    customerViewModel: CustomerViewModel
 ) {
 
     val navController = rememberNavController()
@@ -23,7 +24,7 @@ fun AppNavHost(
         composable(CustomerRoutes.List.route) {
 
             CustomerListScreen(
-                viewModel = viewModel,
+                viewModel = customerViewModel,
                 onAddClick = {
                     navController.navigate(CustomerRoutes.Form.route)
                 }
@@ -33,7 +34,7 @@ fun AppNavHost(
         composable(CustomerRoutes.Form.route) {
 
             CustomerFormScreen(
-                viewModel = viewModel,
+                viewModel = customerViewModel,
                 onBack = {
                     navController.popBackStack()
                 }

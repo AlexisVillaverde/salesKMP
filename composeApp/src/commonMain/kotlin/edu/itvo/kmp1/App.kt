@@ -4,18 +4,19 @@ package edu.itvo.kmp1
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import edu.itvo.kmp1.di.AppComponent
-import edu.itvo.kmp1.di.Injector
 
 import edu.itvo.kmp1.navigation.AppNavHost
 
 @Composable
 fun App() {
 
-    val viewModel = remember {
-        Injector.customerViewModel
+    val component = remember {
+        AppComponent()
     }
 
     MaterialTheme {
-        AppNavHost(viewModel)
+        AppNavHost(
+            customerViewModel = component.customerViewModel
+        )
     }
 }
