@@ -10,7 +10,7 @@ class CustomerRemoteDataSource(
 
     suspend fun getCustomers(): List<CustomerDto> {
 
-        return api.getCustomers()
+        return api.getCustomers().data
     }
 
     suspend fun saveCustomer(

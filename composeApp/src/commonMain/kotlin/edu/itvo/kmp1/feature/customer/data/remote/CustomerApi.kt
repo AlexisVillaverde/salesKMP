@@ -1,5 +1,6 @@
 package edu.itvo.kmp1.feature.customer.data.remote
 
+import edu.itvo.kmp1.core.network.ApiResponse
 import edu.itvo.kmp1.feature.customer.data.dto.CustomerDto
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -11,7 +12,7 @@ class CustomerApi(
     private val baseUrl: String
 ) {
 
-    suspend fun getCustomers(): List<CustomerDto> {
+    suspend fun getCustomers(): ApiResponse<CustomerDto>{
 
         return client.get(
             "$baseUrl/customers"
