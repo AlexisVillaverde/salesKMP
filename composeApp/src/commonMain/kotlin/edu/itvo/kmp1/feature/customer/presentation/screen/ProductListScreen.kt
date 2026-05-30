@@ -17,36 +17,41 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import edu.itvo.kmp1.feature.customer.presentation.component.CustomerItemCard
+import edu.itvo.kmp1.feature.customer.presentation.component.ProductItemCard
 import edu.itvo.kmp1.feature.customer.presentation.event.CustomerEvent
+import edu.itvo.kmp1.feature.customer.presentation.event.ProductEvent
 import edu.itvo.kmp1.feature.customer.presentation.viewmodel.CustomerViewModel
+import edu.itvo.kmp1.feature.customer.presentation.viewmodel.ProductViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CustomerListScreen(
-    viewModel: CustomerViewModel,
+fun ProductListScreen(
+    viewModel: ProductViewModel,
     onAddClick: () -> Unit
 ) {
 
-    val customers by viewModel.customers.collectAsState()
+    val products by viewModel.products.collectAsState()
 
     Column(modifier = Modifier.fillMaxSize()) {
-    TopAppBar(
-        title = { Text("Listado de Clientes") }
+        TopAppBar(
+            title = { Text("Listado de Productos") }
 
-   )
-    LazyColumn(
+        )
+
+        LazyColumn(
             modifier = Modifier
                 .padding(horizontal = 16.dp)
                 .fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(8.dp)
-    ) {
-            items(customers) { customer ->
+        ) {
 
-                CustomerItemCard(
-                    customer = customer,
+            items(products) { product ->
+
+                ProductItemCard(
+                    product = product,
                     onDeleteClick = {
                         viewModel.onEvent(
-                            CustomerEvent.DeleteCustomer(customer.id)
+                            ProductEvent.DeleteProduct(product.code)
                         )
                     }
                 )

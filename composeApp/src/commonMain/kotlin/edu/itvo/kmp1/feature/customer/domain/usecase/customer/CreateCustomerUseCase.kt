@@ -1,12 +1,10 @@
-package edu.itvo.kmp1.feature.customer.domain.usecase
-
-
+package edu.itvo.kmp1.feature.customer.domain.usecase.customer
 
 import edu.itvo.kmp1.feature.customer.domain.model.Customer
 import edu.itvo.kmp1.feature.customer.domain.repository.CustomerRepository
 import me.tatarka.inject.annotations.Inject
 
-class SaveCustomerUseCase @Inject constructor(
+class CreateCustomerUseCase @Inject constructor(
     private val repository: CustomerRepository
 ) {
 

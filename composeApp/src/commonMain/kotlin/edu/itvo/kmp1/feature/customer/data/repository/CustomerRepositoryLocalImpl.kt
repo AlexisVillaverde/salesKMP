@@ -12,7 +12,6 @@ class CustomerRepositoryLocalImpl @Inject constructor():
     CustomerRepository {
 
     override fun getId(item: Customer): String {
-
         return item.id
     }
 }

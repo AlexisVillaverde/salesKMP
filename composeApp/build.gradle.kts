@@ -65,6 +65,10 @@ kotlin {
             )
         }
 
+        jsMain.dependencies {
+            implementation("io.ktor:ktor-client-js:3.4.3")
+        }
+
         commonMain.dependencies {
 
             implementation(libs.compose.runtime)
@@ -91,6 +95,9 @@ kotlin {
 
             implementation("io.ktor:ktor-client-logging:3.4.3")
             implementation("io.ktor:ktor-client-auth:3.4.3")
+
+            //icons
+
         }
 
         commonTest.dependencies {
@@ -111,6 +118,8 @@ android {
         applicationId = "edu.itvo.kmp1"
         minSdk =
             libs.versions.android.minSdk.get().toInt()
+        targetSdk =
+            libs.versions.android.targetSdk.get().toInt()
     }
 
     packaging {
